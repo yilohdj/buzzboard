@@ -16,6 +16,14 @@ nav a {
   text-decoration: none;
   color: blue;
 }
+.nav-oval {
+  display: inline-block; /* Make the container fit its content */
+  padding: 10px 20px 0px 20px; /* Padding to create space around the links */
+  background-color: lightgoldenrodyellow; /* Background color for the oval */
+  border-radius: 50px; /* Rounded edges to create an oval shape */
+  margin: 20px auto; /* Center the oval horizontally */
+  text-align: center; /* Center align the text inside */
+}
 
 nav a:hover {
   text-decoration: underline;

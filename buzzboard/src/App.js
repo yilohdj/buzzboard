@@ -20,8 +20,6 @@ function App() {
         <div className="nav-oval">
           <nav>
             <Link to="/">Submit a Poster</Link> | <Link to="/corkboard">View Buzzboard</Link>
-          </nav>
-        </div>
         <Routes>
           <Route
             path="/"
