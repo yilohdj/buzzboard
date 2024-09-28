@@ -5,6 +5,44 @@
 
 .title {
   color: goldenrod; /* Change this to any color you want */
+  padding-bottom: 20px
+}
+/* App.css */
+
+/* Custom Navbar styling */
+.custom-navbar {
+  border-radius: 15px;
+  background-color: navy; /* Custom dark blue background */
+  height: 60px; /* Adjust the height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 1.8em; /* Increase font size of the brand */
+  color: #f7b731; /* Golden yellow color for the brand */
+  font-weight: bold;
+  text-transform: uppercase; /* Make it uppercase */
+}
+
+.custom-navbar .nav-link {
+  color: #d1d8e0; /* Light gray color for the nav links */
+  font-size: 1.2em; /* Adjust font size of nav links */
+  margin: 0 15px; /* Add spacing between links */
+  transition: color 0.3s ease; /* Add a smooth hover transition */
+}
+
+.navbar .nav-link:focus, 
+.navbar .nav-link:active {
+  color: #d1d8e0;             /* Keep the text color consistent when focused or active */
+  background-color: transparent; /* Remove any background color */
+}
+
+.custom-navbar .nav-link:hover {
+  color: #f7b731; /* Change color on hover */
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: #f7b731; /* Custom color for the mobile menu button */
 }
 
 nav {
