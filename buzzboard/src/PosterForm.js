@@ -16,6 +16,21 @@ function PosterForm({ onSubmit }) {
 
   const navigate = useNavigate();
 
+  const [titleCount, setTitleCount] = useState(0);
+  const [descriptionCount, setDescriptionCount] = useState(0);
+
+  const categories = [
+        'Arts and Performance',
+        'Career/Professional development',
+        'Conference/Symposium',
+        'Other/Miscellaneous',
+        'Seminar/Lecture/Colloquium',
+        'Special event',
+        'Sports/Athletics',
+        'Student sponsored',
+        'Training/Workshop'
+  ];
+
   // Handle file drop
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0]; // Get the first file
