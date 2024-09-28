@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="" />
+    <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/buzzboard/src/PosterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/PosterForm.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +70,7 @@
       <workItem from="1727552532039" duration="16000" />
       <workItem from="1727552554365" duration="208000" />
       <workItem from="1727553422155" duration="6927000" />
-      <workItem from="1727560604624" duration="3873000" />
+      <workItem from="1727560604624" duration="4257000" />
     </task>
     <servers />
   </component>
@@ -85,29 +87,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/buzzboard/src/PosterForm.js</url>
-          <line>74</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/buzzboard/src/PosterForm.js</url>
-          <line>71</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/buzzboard/src/PosterForm.js</url>
-          <line>85</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
