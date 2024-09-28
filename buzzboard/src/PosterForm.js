@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
-import { Form, Button } from 'react-bootstrap';
-import CategoryDropdown from './CategoryDropdown';
+import { Form, Button, Dropdown } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -13,7 +12,17 @@ function PosterForm({ onSubmit }) {
     category: "",
     file: null,
   });
-
+  const categories = [
+    'Arts and Performance', 
+    'Career/Professional development', 
+    'Conference/Symposium',
+    'Other/Miscellaneous', 
+    'Seminar/Lecture/Colloquium', 
+    'Special Event', 
+    'Sports/Athletics', 
+    'Student Sponsored',
+    'Training/Workshop'
+  ];
   const [titleCount, setTitleCount] = useState(0);
   const [descriptionCount, setDescriptionCount] = useState(0);
   const [preview, setPreview] = useState(null);
@@ -70,26 +79,74 @@ function PosterForm({ onSubmit }) {
   };
 
   return (
-      <form className="poster-form" onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required/>
-        </label>
-          <label>
-              Title:
-              <input type="text" name="title" value={formData.title} onChange={handleChange} required maxLength={50}/>
-              <p style={{color: "gray", fontSize: "0.8em" }}>max: 50 characters</p>
-          </label>
-          <label>
-              Description:
-              <textarea name="description" value={formData.description} onChange={handleChange} required maxLength={200}/>
-          <p style={{ color: "gray", fontSize: "0.8em" }}>max: 200 characters</p>
-        </label>
-        <CategoryDropdown formData={formData} handleChange={handleChange} />
+    <Form className="poster-form" onSubmit={handleSubmit}>
+      <Form.Group controlId="formName">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Enter your name"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="Enter your email"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formTitle">
+        <Form.Label>Title:</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+          placeholder="Enter title of the poster"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formDescription">
+        <Form.Label>Description:</Form.Label>
+        <Form.Control
+          as="textarea"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+          placeholder="Enter description"
+          rows={3}
+        />
+      </Form.Group>
+      <label>
+      Category:
+      <Dropdown>
+        <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
+          {formData.category || '--Choose a Category--'} {/* Show selected category or default */}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {categories.map((category, index) => (
+            <Dropdown.Item 
+              key={index} 
+              onClick={() => handleChange({ target: { name: 'category', value: category }})} // Handle category selection
+            >
+              {category}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </label>
         {/* Drag and Drop Area */}
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
@@ -106,7 +163,7 @@ function PosterForm({ onSubmit }) {
         <Button className="custom-button" variant="primary" type="submit" size="lg" style={{ marginTop: '20px', backgroundColor: "navy", borderColor: "navy" }}>
         Submit Poster
       </Button>
-      </form>
+      </Form>
   );
 }
 
