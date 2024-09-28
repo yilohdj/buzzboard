@@ -3,8 +3,19 @@ import './Corkboard.css';
 
 function Corkboard({posters}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [flippedIndex, setFlippedIndex] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState("");
+
+    const categories = [
+        'Arts and Performance',
+        'Career/Professional development',
+        'Conference/Symposium',
+        'Other/Miscellaneous',
+        'Seminar/Lecture/Colloquium',
+        'Special Event',
+        'Sports/Athletics',
+        'Student Sponsored',
+        'Training/Workshop'
+    ];
 
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
@@ -12,10 +23,6 @@ function Corkboard({posters}) {
 
     const handleMouseLeave = () => {
         setHoveredIndex(null);
-    };
-
-    const handleClick = (index) => {
-        setFlippedIndex((prevIndex) => (prevIndex === index ? null : index)); // Flip the poster on click
     };
 
     const handleCategoryChange = (e) => {

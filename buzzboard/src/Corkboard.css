@@ -18,10 +18,6 @@
     transform-style: preserve-3d; /* Preserve 3D effect */
 }
 
-.poster.flipped .poster-content {
-    transform: rotateY(180deg); /* Rotate to flip */
-}
-
 .poster-image {
     width: 100%;
     height: 100%;
