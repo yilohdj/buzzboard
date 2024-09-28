@@ -100,12 +100,14 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .poster-form input,
 .poster-form textarea {
   padding: 5px;
   font-size: 16px;
+  border-radius: 10px; /* Rounded corners */
 }
 .corkboard {
   display: grid;

@@ -58,23 +58,55 @@ function PosterForm({ onSubmit }) {
   };
 
   return (
-      <form className="poster-form" onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required/>
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required/>
-        </label>
-        <label>
-          Title:
-          <input type="text" name="title" value={formData.title} onChange={handleChange} required/>
-        </label>
-        <label>
-          Description:
-          <textarea name="description" value={formData.description} onChange={handleChange} required/>
-        </label>
+    <Form className="poster-form" onSubmit={handleSubmit}>
+      <Form.Group controlId="formName">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Enter your name"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="Enter your email"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formTitle">
+        <Form.Label>Title:</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+          placeholder="Enter title of the poster"
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formDescription">
+        <Form.Label>Description:</Form.Label>
+        <Form.Control
+          as="textarea"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+          placeholder="Enter description"
+          rows={3}
+        />
+      </Form.Group>
         <CategoryDropdown formData={formData} handleChange={handleChange} />
         {/* Drag and Drop Area */}
         <div {...getRootProps()} className="dropzone">
@@ -87,7 +119,7 @@ function PosterForm({ onSubmit }) {
         <Button className="custom-button" variant="primary" type="submit" size="lg" style={{ marginTop: '20px', backgroundColor: "navy", borderColor: "navy" }}>
         Submit Poster
       </Button>
-      </form>
+      </Form>
   );
 }
 
