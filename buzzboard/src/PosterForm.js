@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -81,7 +82,7 @@ function PosterForm({ onSubmit }) {
         <label>
           Category:
           <select name="category" value={formData.category} onChange={handleChange} required>
-            <option value="">--Please choose a category--</option>
+            <option value="">--Choose a Category--</option>
             {categories.map((category, index) => (
                 <option key={index} value={category}>
                   {category}
@@ -97,7 +98,9 @@ function PosterForm({ onSubmit }) {
         {/* Display the selected file name */}
         {formData.file && <p>Selected file: {formData.file.name}</p>}
 
-        <button type="submit">Submit Poster</button>
+        <Button className="custom-button" variant="primary" type="submit" size="lg" style={{ marginTop: '20px', backgroundColor: "navy", borderColor: "navy" }}>
+        Submit Poster
+      </Button>
       </form>
   );
 }
