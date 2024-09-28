@@ -22,12 +22,19 @@ function PosterForm({ onSubmit }) {
   // Handle file drop
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0]; // Get the first file
-    setFormData({ ...formData, file });
+    // Check if the file is an image
+    if (file && file.type.startsWith("image/")) {
+      setFormData({ ...formData, file });
+    } else {
+      alert("Please upload an image file.");
+    }
   };
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "image/*", // Accept only image files
+    accept: {
+      'image/*': [] // Accepts any image file type
+    }
   });
 
   const handleChange = (e) => {
@@ -87,7 +94,6 @@ function PosterForm({ onSubmit }) {
           <input {...getInputProps()} />
           <p>Drag and drop an image file here, or click to select one</p>
         </div>
-
         {/* Display the selected file name */}
         {formData.file && <p>Selected file: {formData.file.name}</p>}
 
