@@ -3,6 +3,7 @@ import './Corkboard.css';
 
 function Corkboard({posters}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [clickedIndex, setClickedIndex] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("");
 
     const categories = [
@@ -43,7 +44,6 @@ function Corkboard({posters}) {
                 Filter by Category:
                 <select value={selectedCategory} onChange={handleCategoryChange}>
                     <option value="">--All Categories--</option>
-                    {/* Dynamically create category options */}
                     {Array.from(new Set(posters.map((poster) => poster.category))).map((category, index) => (
                         <option key={index} value={category}>
                             {category}
@@ -52,11 +52,12 @@ function Corkboard({posters}) {
                 </select>
             </label>
             <div className="corkboard">
-                {posters.map((poster, index) => (
+                {filteredPosters.map((poster, index) => (
                     <div key={index}
                          className="poster"
                          onMouseEnter={() => handleMouseEnter(index)} // Handle hover event
                          onMouseLeave={handleMouseLeave} // Handle mouse leave event
+                         onClick={() => handleClick(index)}
                     >
                         <div className="poster-content">
                             <img

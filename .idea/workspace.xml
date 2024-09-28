@@ -34,6 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Node.js.Corkboard.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "subin",
     "kotlin-language-version-configured": "true",
@@ -68,7 +69,7 @@
       <workItem from="1727552487323" duration="42000" />
       <workItem from="1727552532039" duration="16000" />
       <workItem from="1727552554365" duration="208000" />
-      <workItem from="1727553422155" duration="5202000" />
+      <workItem from="1727553422155" duration="5526000" />
     </task>
     <servers />
   </component>
