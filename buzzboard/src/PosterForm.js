@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
-import { Form, Button } from 'react-bootstrap';
-import CategoryDropdown from './CategoryDropdown';
+import { Form, Button, Dropdown } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -13,6 +12,18 @@ function PosterForm({ onSubmit }) {
     category: "",
     file: null,
   });
+
+  const categories = [
+    'Arts and Performance', 
+    'Career/Professional development', 
+    'Conference/Symposium',
+    'Other/Miscellaneous', 
+    'Seminar/Lecture/Colloquium', 
+    'Special Event', 
+    'Sports/Athletics', 
+    'Student Sponsored',
+    'Training/Workshop'
+  ];
 
   const navigate = useNavigate();
 
@@ -107,7 +118,25 @@ function PosterForm({ onSubmit }) {
           rows={3}
         />
       </Form.Group>
-        <CategoryDropdown formData={formData} handleChange={handleChange} />
+      <label>
+      Category:
+      <Dropdown>
+        <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
+          {formData.category || '--Choose a Category--'} {/* Show selected category or default */}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {categories.map((category, index) => (
+            <Dropdown.Item 
+              key={index} 
+              onClick={() => handleChange({ target: { name: 'category', value: category }})} // Handle category selection
+            >
+              {category}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </label>
         {/* Drag and Drop Area */}
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />

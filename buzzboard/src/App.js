@@ -5,6 +5,7 @@ import Corkboard from "./Corkboard";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import icon from './icon.png';
 
 function App() {
   const [posters, setPosters] = useState([]);
@@ -17,8 +18,13 @@ function App() {
     <Router>
       <div className="App">
         <header>
+        <img src={icon}
+        alt="Icon" 
+        style={{ width: '70px', height: 'auto', marginRight: '10px' }} 
+        align="left"/>
         <h1 className="title">Georgia Tech Buzzboard</h1>
         </header>
+
         <Container>
           <Navbar bg="custom" variant="dark" expand="lg" className="custom-navbar">
             <Container className="justify-content-center">
