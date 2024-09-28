@@ -18,9 +18,11 @@ function App() {
         <h1 className="title">Georgia Tech Buzzboard</h1>
         </header>
 
-        <nav>
-          <Link to="/">Submit a Poster</Link> | <Link to="/corkboard">View Buzzboard</Link>
-        </nav>
+        <div className="nav-oval">
+          <nav>
+            <Link to="/">Submit a Poster</Link> | <Link to="/corkboard">View Corkboard</Link>
+          </nav>
+        </div>
         <Routes>
           <Route
             path="/"
