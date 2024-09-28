@@ -26,7 +26,7 @@ function Corkboard({posters}) {
     };
 
     const handleClick = (index) => {
-        setClinckedIndex(clickedIndex) == index ? null : index);
+        setClickedIndex(clickedIndex) == (index ? null : index);
     };
 
     const handleCategoryChange = (e) => {
