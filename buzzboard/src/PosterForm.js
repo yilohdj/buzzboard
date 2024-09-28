@@ -69,11 +69,13 @@ function PosterForm({ onSubmit }) {
         </label>
         <label>
           Title:
-          <input type="text" name="title" value={formData.title} onChange={handleChange} required/>
+          <input type="text" name="title" value={formData.title} onChange={handleChange} required maxLength={50}/>
+          <small style={{ float: "right", color: "gray" }}>{titleCount}/50</small>
         </label>
         <label>
           Description:
-          <textarea name="description" value={formData.description} onChange={handleChange} required/>
+          <textarea name="description" value={formData.description} onChange={handleChange} required maxLength={200}/>
+          <small style={{ float: "right", color: "gray" }}>(descriptionCount}/200</small>
         </label>
         <CategoryDropdown formData={formData} handleChange={handleChange} />
         {/* Drag and Drop Area */}
