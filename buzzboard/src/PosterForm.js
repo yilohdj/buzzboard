@@ -111,9 +111,13 @@ function PosterForm({ onSubmit }) {
           name="title"
           value={formData.title}
           onChange={handleChange}
-          required
           placeholder="Enter title of the poster"
+          maxLength={50} // Set max length
+          required
         />
+        <Form.Text className="text-muted">
+          Maximum 50 characters
+        </Form.Text>
       </Form.Group>
 
       <Form.Group controlId="formDescription">
@@ -123,10 +127,14 @@ function PosterForm({ onSubmit }) {
           name="description"
           value={formData.description}
           onChange={handleChange}
-          required
           placeholder="Enter description"
           rows={3}
+          maxLength={200} // Set max length
+          required
         />
+        <Form.Text className="text-muted">
+          Maximum 200 characters
+        </Form.Text>
       </Form.Group>
       <label>
       Category:
