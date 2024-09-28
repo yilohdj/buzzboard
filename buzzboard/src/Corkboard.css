@@ -1,13 +1,25 @@
 .corkboard {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 16px;
 }
 
 .poster {
     position: relative;
-    width: 200px; /* Adjust based on poster size */
-    height: 300px; /* Adjust based on poster size */
+    width: 200px;
+    height: 300px;
+    perspective: 1000px; /* Enable 3D space for flip effect */
+}
+
+.poster-content {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s; /* Smooth transition for flipping */
+    transform-style: preserve-3d; /* Preserve 3D effect */
+}
+
+.poster.flipped .poster-content {
+    transform: rotateY(180deg); /* Rotate to flip */
 }
 
 .poster-image {
@@ -21,15 +33,44 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
     padding: 10px;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .poster:hover .title-overlay {
-    opacity: 1;
+    opacity: 1; /* Show title when hovering */
+}
+
+.details-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.category {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
 }
