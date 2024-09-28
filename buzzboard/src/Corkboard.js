@@ -50,7 +50,7 @@ function Corkboard({posters}) {
             <div className="corkboard">
                 {posters.map((poster, index) => (
                     <div key={index}
-                         className={`poster ${flippedIndex === index ? 'flipped' : ''}`} // Add flipped class if flipped
+                         className="poster"
                          onMouseEnter={() => handleMouseEnter(index)} // Handle hover event
                          onMouseLeave={handleMouseLeave} // Handle mouse leave event
                          onClick={() => handleClick(index)} // Handle click event to flip}
