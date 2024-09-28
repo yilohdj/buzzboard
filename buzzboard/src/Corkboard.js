@@ -61,16 +61,14 @@ function Corkboard({posters}) {
                                 alt={`Poster ${index + 1}`}
                                 className="poster-image"
                             />
-                            {hoveredIndex === index && flippedIndex !== index && (
-                                <div className="title-overlay">{poster.title}</div> // Show title on hover if not flipped
+                            {hoveredIndex === index && (
+                                <div className="details-overlay">
+                                    <div className="title">{poster.title}</div>
+                                    <div className="category">{poster.category}</div>
+                                    <div className="description">{poster.description}</div>
+                                </div>
                             )}
                         </div>
-                        {flippedIndex === index && (
-                            <div className="details-overlay">
-                                <div className="category">{poster.category}</div>
-                                <div className="description">{poster.description}</div>
-                            </div>
-                        )}
                     </div>
                 ))}
             </div>
