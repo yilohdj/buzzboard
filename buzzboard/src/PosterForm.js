@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ function PosterForm({ onSubmit }) {
     description: "",
     file: null,
   });
-
+  const navigate = useNavigate(); // Initialize navigate function
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
@@ -26,6 +27,7 @@ function PosterForm({ onSubmit }) {
         file: reader.result, // base64 image data
       });
     };
+    navigate("/corkboard");
     if (formData.file) {
       reader.readAsDataURL(formData.file);
     }
