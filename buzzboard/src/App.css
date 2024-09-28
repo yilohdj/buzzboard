@@ -5,7 +5,8 @@
 
 .title {
   color: goldenrod; /* Change this to any color you want */
-  padding-bottom: 20px
+  padding-bottom: 20px;
+  font-weight: bold;
 }
 /* App.css */
 
@@ -127,7 +128,7 @@ nav a:hover {
 }
 
 .dropzone {
-  border: 3px solid #007bff; /* Dashed border for the drop zone */
+  border: 3px solid cornflowerblue; /* Dashed border for the drop zone */
   border-radius: 15px;
   padding: 20px;
   text-align: center;
@@ -138,6 +139,6 @@ nav a:hover {
 }
 
 .dropzone:hover {
-  border-color: #0056b3; /* Darker border on hover */
+  border-color: navy; /* Darker border on hover */
   background-color: rgba(0, 0, 0, 0.1);
 }
