@@ -59,3 +59,19 @@ nav a:hover {
   height: auto;
   border-radius: 5px;
 }
+
+.dropzone {
+  border: 3px solid #007bff; /* Dashed border for the drop zone */
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0; /* Margin for spacing */
+  cursor: pointer; /* Pointer cursor for better UX */
+  transition: border-color 0.2s;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dropzone:hover {
+  border-color: #0056b3; /* Darker border on hover */
+  background-color: rgba(0, 0, 0, 0.1);
+}
