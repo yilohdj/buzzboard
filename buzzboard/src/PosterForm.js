@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
 import { Form, Button } from 'react-bootstrap';
+import CategoryDropdown from './CategoryDropdown';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -12,11 +13,6 @@ function PosterForm({ onSubmit }) {
     category: "",
     file: null,
   });
-
-  const categories = ['Arts and Performance', 'Career/Professional development', 'Conference/Symposium',
-    'Other/Miscellaneous', 'Seminar/Lecture/Colloquium', 'Special event', 'Sports/Athletics', 'Student sponsored',
-    'Training/Workshop'];
-
 
   const navigate = useNavigate();
 
@@ -79,17 +75,7 @@ function PosterForm({ onSubmit }) {
           Description:
           <textarea name="description" value={formData.description} onChange={handleChange} required/>
         </label>
-        <label>
-          Category:
-          <select name="category" value={formData.category} onChange={handleChange} required>
-            <option value="">--Choose a Category--</option>
-            {categories.map((category, index) => (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-            ))}
-          </select>
-        </label>
+        <CategoryDropdown formData={formData} handleChange={handleChange} />
         {/* Drag and Drop Area */}
         <div {...getRootProps()} className="dropzone">
           <input {...getInputProps()} />
