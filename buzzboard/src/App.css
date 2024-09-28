@@ -29,6 +29,26 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.nav-oval {
+  display: inline-block; /* Make the container fit its content */
+  padding: 10px 10px 0px 10px; /* Adjust padding */
+  background-color: lightgoldenrodyellow; /* Background color for the oval */
+  border-radius: 50px; /* Rounded edges to create an oval shape */
+  margin: 10px auto; /* Center the oval horizontally */
+  text-align: center; /* Center align the text inside */
+}
+
+.nav-oval nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: mediumblue; /* Link color */
+  font-weight: bold; /* Bold text */
+  padding: 0 15px; /* Padding around each link */
+}
+
+.nav-oval nav a:hover {
+  color: midnightblue; /* Darker color on hover */
+}
+
 .poster-form {
   display: flex;
   flex-direction: column;
