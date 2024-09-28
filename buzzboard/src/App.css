@@ -3,6 +3,10 @@
   padding: 20px;
 }
 
+.title {
+  color: goldenrod; /* Change this to any color you want */
+}
+
 nav {
   margin-bottom: 20px;
 }

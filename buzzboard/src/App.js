@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <h1>Georgia Tech Buzzboard</h1>
+        <h1 className="title">Georgia Tech Buzzboard</h1>
         </header>
 
         <nav>
