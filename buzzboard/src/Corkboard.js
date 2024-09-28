@@ -3,6 +3,8 @@ import './Corkboard.css';
 
 function Corkboard({posters}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [flippedIndex, setFlippedIndex] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
@@ -11,8 +13,6 @@ function Corkboard({posters}) {
     const handleMouseLeave = () => {
         setHoveredIndex(null);
     };
-
-    const [flippedIndex, setFlippedIndex] = useState(null); // State to track flipped poster
 
     const handleClick = (index) => {
         setFlippedIndex((prevIndex) => (prevIndex === index ? null : index)); // Flip the poster on click
@@ -65,6 +65,7 @@ function Corkboard({posters}) {
                 )}
             </div>
         ))}
+        </div>
     </div>
 );
 }

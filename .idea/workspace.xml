@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/buzzboard/src/Corkboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/Corkboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
       <workItem from="1727552487323" duration="42000" />
       <workItem from="1727552532039" duration="16000" />
       <workItem from="1727552554365" duration="208000" />
-      <workItem from="1727553422155" duration="2808000" />
+      <workItem from="1727553422155" duration="3483000" />
     </task>
     <servers />
   </component>
