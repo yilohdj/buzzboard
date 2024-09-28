@@ -25,6 +25,10 @@ function Corkboard({posters}) {
         setHoveredIndex(null);
     };
 
+    const handleClick = (index) => {
+        setClinckedIndex(clickedIndex) == index ? null : index);
+    };
+
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value); // Update selected category based on dropdown
     };
@@ -53,7 +57,6 @@ function Corkboard({posters}) {
                          className="poster"
                          onMouseEnter={() => handleMouseEnter(index)} // Handle hover event
                          onMouseLeave={handleMouseLeave} // Handle mouse leave event
-                         onClick={() => handleClick(index)} // Handle click event to flip}
                     >
                         <div className="poster-content">
                             <img
@@ -61,7 +64,10 @@ function Corkboard({posters}) {
                                 alt={`Poster ${index + 1}`}
                                 className="poster-image"
                             />
-                            {hoveredIndex === index && (
+                            {hoveredIndex === index && clickedIndex != index && (
+                                <div className="title-overlay">{poster.title}</div>
+                            )}
+                            {clickedIndex === index && (
                                 <div className="details-overlay">
                                     <div className="title">{poster.title}</div>
                                     <div className="category">{poster.category}</div>

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="" />
+    <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +68,7 @@
       <workItem from="1727552487323" duration="42000" />
       <workItem from="1727552532039" duration="16000" />
       <workItem from="1727552554365" duration="208000" />
-      <workItem from="1727553422155" duration="4520000" />
+      <workItem from="1727553422155" duration="5202000" />
     </task>
     <servers />
   </component>
@@ -83,5 +85,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/buzzboard/src/Corkboard.js</url>
+          <line>62</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
