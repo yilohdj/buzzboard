@@ -14,8 +14,12 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <header>
+          <h1>Georgia Tech Buzzboard</h1>
+        </header>
+
         <nav>
-          <Link to="/">Submit a Poster</Link> | <Link to="/corkboard">View Corkboard</Link>
+          <Link to="/">Submit a Poster</Link> | <Link to="/corkboard">View Buzzboard</Link>
         </nav>
         <Routes>
           <Route
