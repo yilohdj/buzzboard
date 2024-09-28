@@ -12,7 +12,6 @@ function PosterForm({ onSubmit }) {
     category: "",
     file: null,
   });
-
   const categories = [
     'Arts and Performance', 
     'Career/Professional development', 
@@ -24,6 +23,9 @@ function PosterForm({ onSubmit }) {
     'Student Sponsored',
     'Training/Workshop'
   ];
+  const [titleCount, setTitleCount] = useState(0);
+  const [descriptionCount, setDescriptionCount] = useState(0);
+  const [preview, setPreview] = useState(null);
 
   const navigate = useNavigate();
 
@@ -33,6 +35,7 @@ function PosterForm({ onSubmit }) {
     // Check if the file is an image
     if (file && file.type.startsWith("image/")) {
       setFormData({ ...formData, file });
+      setPreview(URL.createObjectURL(file)); // Create a preview URL for the uploaded image
     } else {
       alert("Please upload an image file.");
     }
@@ -45,12 +48,19 @@ function PosterForm({ onSubmit }) {
     }
   });
 
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
       ...formData,
       [name]: files ? files[0] : value,
     });
+
+    if (name === "title") {
+       setTitleCount(value.length);
+    } else if (name === "description") {
+       setDescriptionCount(value.length);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -144,7 +154,12 @@ function PosterForm({ onSubmit }) {
         </div>
         {/* Display the selected file name */}
         {formData.file && <p>Selected file: {formData.file.name}</p>}
-
+        {preview && (
+           <div>
+               <h3>Image Preview:</h3>
+               <img src={preview} alt="Preview" style={{ maxWidth: "200px", maxHeight: "200px" }} />
+           </div>
+        )}
         <Button className="custom-button" variant="primary" type="submit" size="lg" style={{ marginTop: '20px', backgroundColor: "navy", borderColor: "navy" }}>
         Submit Poster
       </Button>
