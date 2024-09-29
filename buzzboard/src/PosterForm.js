@@ -112,11 +112,11 @@ function PosterForm({ onSubmit }) {
           value={formData.title}
           onChange={handleChange}
           placeholder="Enter title of the poster"
-          maxLength={50} // Set max length
+          maxLength={30} // Set max length
           required
         />
         <Form.Text className="text-muted">
-          Maximum 50 characters
+          Maximum 30 characters
         </Form.Text>
       </Form.Group>
 
