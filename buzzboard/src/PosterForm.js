@@ -139,7 +139,7 @@ function PosterForm({ onSubmit }) {
       <label>
       Category:
       <Dropdown>
-        <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
+        <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white', marginTop: '10px' }} id="dropdown-basic">
           {formData.category || '--Choose a Category--'} {/* Show selected category or default */}
         </Dropdown.Toggle>
 
