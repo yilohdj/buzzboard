@@ -30,8 +30,8 @@ function Corkboard({posters}) {
 
     return (
         <div>
-            <label>
-            Filter by Category:
+            <label >
+            <b>Filter by Category:</b>
             <Dropdown>
                 <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
                     {selectedCategory || '--All Categories--'} {/* Show selected category or default */}
