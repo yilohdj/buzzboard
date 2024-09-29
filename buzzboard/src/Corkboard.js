@@ -74,6 +74,8 @@ function Corkboard({posters}) {
                                     <div className="title">{poster.title}</div>
                                     <div className="category">{poster.category}</div>
                                     <div className="description">{poster.description}</div>
+                                    {console.log(poster.username)}
+                                    <div className="username"><strong>Submitted by:</strong> {poster.username}</div>
                                 </div>
                             )}
                         </div>

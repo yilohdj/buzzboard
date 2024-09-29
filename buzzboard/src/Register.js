@@ -22,6 +22,7 @@ const Register = ({setIsAuth}) => {
 
         if (loginRes) {
           localStorage.setItem('token', loginRes.token);
+          localStorage.setItem('username', username);
           setIsAuth(true);
           navigate('/');
         } else {

@@ -24,6 +24,7 @@ function App() {
   // hook to log user out
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     setIsAuth(false);
   };
 

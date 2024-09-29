@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Dropdown } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
+  const username = localStorage.getItem('username');
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     category: "",
+    username: username,
     file: null,
   });
   const categories = [
@@ -67,6 +69,7 @@ function PosterForm({ onSubmit }) {
       alert("Please choose a category.");
       return;
     }
+
     const reader = new FileReader();
     reader.onloadend = () => {
       onSubmit({
@@ -75,6 +78,7 @@ function PosterForm({ onSubmit }) {
       });
       navigate("/corkboard");
     };
+
     if (formData.file) {
       reader.readAsDataURL(formData.file);
     }
