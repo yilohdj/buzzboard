@@ -65,6 +65,10 @@ function PosterForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.category) {
+      alert("Please choose a category.");
+      return;
+    }
     const reader = new FileReader();
     reader.onloadend = () => {
       onSubmit({
