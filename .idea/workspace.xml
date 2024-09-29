@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2a7c9528-7a48-4d2e-be2d-751fc0240f0f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/buzzboard/src/Corkboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/Corkboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/buzzboard/src/Corkboard.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,7 @@
     "Node.js.Corkboard.js.executor": "Run",
     "Node.js.CorkboardStyling.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "subin",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -72,7 +73,7 @@
       <workItem from="1727552532039" duration="16000" />
       <workItem from="1727552554365" duration="208000" />
       <workItem from="1727553422155" duration="6927000" />
-      <workItem from="1727560604624" duration="8714000" />
+      <workItem from="1727560604624" duration="9129000" />
     </task>
     <servers />
   </component>
@@ -98,12 +99,6 @@
           <line>162</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/buzzboard/src/CorkboardStyling.js</url>
-          <line>6</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

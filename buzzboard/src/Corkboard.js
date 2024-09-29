@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './Corkboard.css';
+import 'CorkboardStyling.js';
 
 function Corkboard({posters}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
