@@ -28,7 +28,7 @@ function App() {
         <Container>
           <Navbar bg="custom" variant="dark" expand="lg" className="custom-navbar">
             <Container className="justify-content-center">
-              <Navbar.Brand>Buzzboard</Navbar.Brand>
+              <Navbar.Brand href="/" className="brand-style">Buzzboard</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav.Link as={Link} to="/" className="nav-link-style">Submit a Poster</Nav.Link>
