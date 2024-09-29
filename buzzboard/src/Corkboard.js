@@ -8,18 +8,6 @@ function Corkboard({posters}) {
     const [clickedIndex, setClickedIndex] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("");
 
-    const categories = [
-        'Arts and Performance',
-        'Career/Professional Development',
-        'Conference/Symposium',
-        'Other/Miscellaneous',
-        'Seminar/Lecture/Colloquium',
-        'Special Event',
-        'Sports/Athletics',
-        'Student Sponsored',
-        'Training/Workshop'
-    ];
-
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
     };
