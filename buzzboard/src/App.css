@@ -39,13 +39,19 @@
 .custom-navbar .navbar-toggler {
   border-color: #f7b731; /* Custom color for the mobile menu button */
 }
-
+.navbar .nav-link:focus {
+  color: grey;             /* Keep the text color consistent when focused or active */
+  background-color: transparent; /* Remove any background color */
+}
 .poster-form {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 20px auto;
   gap: 10px;
+}
+nav a:hover {
+  text-decoration: underline;
 }
 
 .poster-form label {
