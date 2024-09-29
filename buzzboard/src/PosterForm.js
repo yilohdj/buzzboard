@@ -14,7 +14,7 @@ function PosterForm({ onSubmit }) {
   });
   const categories = [
     'Arts and Performance', 
-    'Career/Professional development', 
+    'Career/Professional Development', 
     'Conference/Symposium',
     'Other/Miscellaneous', 
     'Seminar/Lecture/Colloquium', 
@@ -112,11 +112,11 @@ function PosterForm({ onSubmit }) {
           value={formData.title}
           onChange={handleChange}
           placeholder="Enter title of the poster"
-          maxLength={30} // Set max length
+          maxLength={40} // Set max length
           required
         />
         <Form.Text className="text-muted">
-          Maximum 30 characters
+          Maximum 40 characters
         </Form.Text>
       </Form.Group>
 

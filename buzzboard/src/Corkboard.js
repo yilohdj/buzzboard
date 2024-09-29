@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Dropdown } from "react-bootstrap";
 import './Corkboard.css';
 import './CorkboardStyling';
 
@@ -6,18 +7,6 @@ function Corkboard({posters}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [clickedIndex, setClickedIndex] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("");
-
-    const categories = [
-        'Arts and Performance',
-        'Career/Professional development',
-        'Conference/Symposium',
-        'Other/Miscellaneous',
-        'Seminar/Lecture/Colloquium',
-        'Special Event',
-        'Sports/Athletics',
-        'Student Sponsored',
-        'Training/Workshop'
-    ];
 
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
@@ -41,17 +30,28 @@ function Corkboard({posters}) {
 
     return (
         <div>
-            <label>
-                Filter by Category:
-                <select value={selectedCategory} onChange={handleCategoryChange}>
-                    <option value="">--All Categories--</option>
+            <label >
+            <b>Filter by Category:</b>
+            <Dropdown>
+                <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
+                    {selectedCategory || '--All Categories--'} {/* Show selected category or default */}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item onClick={() => handleCategoryChange({ target: { value: "" }})}>
+                        --All Categories--
+                    </Dropdown.Item>
                     {Array.from(new Set(posters.map((poster) => poster.category))).map((category, index) => (
-                        <option key={index} value={category}>
+                        <Dropdown.Item 
+                            key={index} 
+                            onClick={() => handleCategoryChange({ target: { value: category }})} // Handle category selection
+                        >
                             {category}
-                        </option>
+                        </Dropdown.Item>
                     ))}
-                </select>
-            </label>
+                </Dropdown.Menu>
+            </Dropdown>
+        </label>
             <div className="corkboard">
                 {filteredPosters.map((poster, index) => (
                     <div key={index}
