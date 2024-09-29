@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { register } from './authService';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await register(username, password);
-    // Handle success (e.g., redirect to login)
+    try {
+      await register(username, password);
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

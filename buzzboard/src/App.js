@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import PosterForm from "./PosterForm";
 import Corkboard from "./Corkboard";
+import Register from "./Register";
+import Login from "./Login";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import icon from './icon.png';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false); // track if user is logged in
   const [posters, setPosters] = useState([]);
+
+  // check local storage for if user is logged in on app load
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuth(true);
+    }
+  }, []);
+
+  // hook to log user out
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsAuth(false);
+  };
 
   const handlePosterSubmit = (poster) => {
     setPosters([...posters, poster]);
@@ -16,6 +33,20 @@ function App() {
 
   return (
     <Router>
+      <header>
+        {isAuth ? (
+          <nav>
+            <button onClick={handleLogout}>Logout</button>
+            {/* Other links for authenticated users */}
+          </nav>
+        ) : (
+          <nav>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+          </nav>
+        )}
+      </header>
+
       <div className="App">
         <header>
         <img src={icon}
@@ -45,6 +76,14 @@ function App() {
           <Route
             path="/corkboard"
             element={<Corkboard posters={posters} />}
+          />
+          <Route
+            path="/register"
+            element={<Register/>}
+          />
+          <Route
+            path="/login"
+            element={<Login setIsAuth = {setIsAuth} />}
           />
         </Routes>
       </div>

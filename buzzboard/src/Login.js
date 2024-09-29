@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { login } from './authService';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setIsAuth}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(username, password);
-    // Handle success (e.g., redirect to dashboard)
+    try {
+      const res = await login(username, password);
+      if (res.token) {
+        localStorage.setItem('token', res.token);
+        setIsAuth(true);
+        navigate('/');
+      }
+    } catch (err) {
+      console.log('Invalid credentials!');
+    }
   };
 
   return (
