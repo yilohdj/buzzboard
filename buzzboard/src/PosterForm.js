@@ -14,7 +14,7 @@ function PosterForm({ onSubmit }) {
   });
   const categories = [
     'Arts and Performance', 
-    'Career/Professional development', 
+    'Career/Professional Development', 
     'Conference/Symposium',
     'Other/Miscellaneous', 
     'Seminar/Lecture/Colloquium', 
