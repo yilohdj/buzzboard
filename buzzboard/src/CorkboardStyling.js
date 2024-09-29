@@ -7,7 +7,7 @@ function Corkboard({ posters }) {
             <div className="row corkboard">
                 {posters.map((poster, index) => (
                     <div className="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center" key={index}>
-                        <div className="card poster" style={{ width: '300px', height: '400px' }}>
+                        <div className="card poster" style={{ width: '300px', height: '400px'}}>
                             <img
                                 className="card-img-top poster-image"
                                 src={poster.image}
