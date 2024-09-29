@@ -1,27 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 function Corkboard({ posters }) {
     return (
         <div className="container mt-4">
-            <div className="row">
+            <div className="row corkboard">
                 {posters.map((poster, index) => (
-                    <div className="col-md-4 mb-4" key={index}>
-                        <div className="card position-relative">
+                    <div className="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center" key={index}>
+                        <div className="card poster">
                             <img
-                                className="card-img-top"
+                            <img
+                                className="card-img-top poster-image"
                                 src={poster.image}
                                 alt={poster.title}
-                                style={{ height: '300px', objectFit: 'cover' }}
                             />
-                            <div className="card-img-overlay d-flex flex-column justify-content-end">
-                                <div className="bg-dark text-white p-2 mb-2">
-                                    {poster.title}
-                                </div>
-                                <div className="bg-dark text-white p-2">
-                                    <h5 className="card-title">{poster.category}</h5>
-                                    <p className="card-text">{poster.description}</p>
-                                </div>
+                            <div className="details-overlay">
+                                <h5 className="card-title">{poster.title}</h5>
+                                <h6 className="category">{poster.category}</h6>
+                                <p className="description">
+                                    {poster.description}
+                                </p>
                             </div>
                         </div>
                     </div>
