@@ -8,18 +8,6 @@ function Corkboard({posters}) {
     const [clickedIndex, setClickedIndex] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState("");
 
-    const categories = [
-        'Arts and Performance',
-        'Career/Professional Development',
-        'Conference/Symposium',
-        'Other/Miscellaneous',
-        'Seminar/Lecture/Colloquium',
-        'Special Event',
-        'Sports/Athletics',
-        'Student Sponsored',
-        'Training/Workshop'
-    ];
-
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
     };
@@ -42,8 +30,8 @@ function Corkboard({posters}) {
 
     return (
         <div>
-            <label>
-            Filter by Category:
+            <label >
+            <b>Filter by Category:</b>
             <Dropdown>
                 <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">
                     {selectedCategory || '--All Categories--'} {/* Show selected category or default */}
