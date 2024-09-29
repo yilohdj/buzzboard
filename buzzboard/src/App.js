@@ -65,23 +65,30 @@ function App() {
           </Navbar>
         </Container>
         <Routes>
-
-          <Route
-            path="/submit"
-            element={<PosterForm onSubmit={handlePosterSubmit} />}
-          />
+          {isAuth ? 
+            <>
+              <Route
+                path="/submit"
+                element={<PosterForm onSubmit={handlePosterSubmit} />}
+              />
+            </>
+            :
+            <>
+              <Route
+              path="/register"
+              element={<Register setIsAuth = {setIsAuth} />}
+              />
+              <Route
+                path="/login"
+                element={<Login setIsAuth = {setIsAuth} />}
+              />
+            </>
+          }
           <Route
             path="/corkboard"
             element={<Corkboard posters={posters} />}
           />
-          <Route
-            path="/register"
-            element={<Register setIsAuth = {setIsAuth} />}
-          />
-          <Route
-            path="/login"
-            element={<Login setIsAuth = {setIsAuth} />}
-          />
+          
         </Routes>
       </div>
     </Router>

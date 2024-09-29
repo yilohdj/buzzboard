@@ -30,7 +30,7 @@ function Corkboard({posters}) {
 
     return (
         <div>
-            <label >
+            <label style={{ marginTop: 16 }}>
             <b>Filter by Category:</b>
             <Dropdown>
                 <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white' }} id="dropdown-basic">

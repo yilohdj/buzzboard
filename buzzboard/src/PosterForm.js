@@ -5,8 +5,6 @@ import { Form, Button, Dropdown } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
     title: "",
     description: "",
     category: "",
@@ -84,29 +82,6 @@ function PosterForm({ onSubmit }) {
 
   return (
     <Form className="poster-form" onSubmit={handleSubmit}>
-      <Form.Group controlId="formName">
-        <Form.Label>Name:</Form.Label>
-        <Form.Control
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          placeholder="Enter your name"
-        />
-      </Form.Group>
-
-      <Form.Group controlId="formEmail">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          placeholder="Enter your email"
-        />
-      </Form.Group>
 
       <Form.Group controlId="formTitle">
         <Form.Label>Title:</Form.Label>
