@@ -5,22 +5,44 @@
 
 .title {
   color: goldenrod; /* Change this to any color you want */
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+/* App.css */
+
+/* Custom Navbar styling */
+.custom-navbar {
+  border-radius: 15px;
+  background-color: navy; /* Custom dark blue background */
+  height: 60px; /* Adjust the height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
-nav {
-  margin-bottom: 20px;
+.custom-navbar .navbar-brand {
+  font-size: 1.8em; /* Increase font size of the brand */
+  color: #f7b731; /* Golden yellow color for the brand */
+  font-weight: bold;
+  text-transform: uppercase; /* Make it uppercase */
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: blue;
+.custom-navbar .nav-link {
+  color: #d1d8e0; /* Light gray color for the nav links */
+  font-size: 1.2em; /* Adjust font size of nav links */
+  margin: 0 15px; /* Add spacing between links */
+  transition: color 0.3s ease; /* Add a smooth hover transition */
 }
 
-nav a:hover {
-  text-decoration: underline;
+.custom-navbar .nav-link:hover {
+  color: #f7b731; /* Change color on hover */
 }
 
+.custom-navbar .navbar-toggler {
+  border-color: #f7b731; /* Custom color for the mobile menu button */
+}
+.navbar .nav-link:focus {
+  color: grey;             /* Keep the text color consistent when focused or active */
+  background-color: transparent; /* Remove any background color */
+}
 .poster-form {
   display: flex;
   flex-direction: column;
@@ -28,17 +50,22 @@ nav a:hover {
   margin: 20px auto;
   gap: 10px;
 }
+nav a:hover {
+  text-decoration: underline;
+}
 
 .poster-form label {
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .poster-form input,
 .poster-form textarea {
   padding: 5px;
   font-size: 16px;
+  border-radius: 10px; /* Rounded corners */
 }
 .corkboard {
   display: grid;
@@ -61,7 +88,7 @@ nav a:hover {
 }
 
 .dropzone {
-  border: 3px solid #007bff; /* Dashed border for the drop zone */
+  border: 3px solid cornflowerblue; /* Dashed border for the drop zone */
   border-radius: 15px;
   padding: 20px;
   text-align: center;
@@ -72,6 +99,6 @@ nav a:hover {
 }
 
 .dropzone:hover {
-  border-color: #0056b3; /* Darker border on hover */
+  border-color: navy; /* Darker border on hover */
   background-color: rgba(0, 0, 0, 0.1);
 }

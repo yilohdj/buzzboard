@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
+import { Form, Button, Dropdown } from 'react-bootstrap';
 
 function PosterForm({ onSubmit }) {
   const [formData, setFormData] = useState({
@@ -8,21 +9,45 @@ function PosterForm({ onSubmit }) {
     email: "",
     title: "",
     description: "",
+    category: "",
     file: null,
   });
+  const categories = [
+    'Arts and Performance', 
+    'Career/Professional Development', 
+    'Conference/Symposium',
+    'Other/Miscellaneous', 
+    'Seminar/Lecture/Colloquium', 
+    'Special Event', 
+    'Sports/Athletics', 
+    'Student Sponsored',
+    'Training/Workshop'
+  ];
+  const [titleCount, setTitleCount] = useState(0);
+  const [descriptionCount, setDescriptionCount] = useState(0);
+  const [preview, setPreview] = useState(null);
 
   const navigate = useNavigate();
 
   // Handle file drop
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0]; // Get the first file
-    setFormData({ ...formData, file });
+    // Check if the file is an image
+    if (file && file.type.startsWith("image/")) {
+      setFormData({ ...formData, file });
+      setPreview(URL.createObjectURL(file)); // Create a preview URL for the uploaded image
+    } else {
+      alert("Please upload an image file.");
+    }
   };
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "image/*", // Accept only image files
+    accept: {
+      'image/*': [] // Accepts any image file type
+    }
   });
+
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -30,10 +55,20 @@ function PosterForm({ onSubmit }) {
       ...formData,
       [name]: files ? files[0] : value,
     });
+
+    if (name === "title") {
+       setTitleCount(value.length);
+    } else if (name === "description") {
+       setDescriptionCount(value.length);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.category) {
+      alert("Please choose a category.");
+      return;
+    }
     const reader = new FileReader();
     reader.onloadend = () => {
       onSubmit({
@@ -48,35 +83,99 @@ function PosterForm({ onSubmit }) {
   };
 
   return (
-    <form className="poster-form" onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </label>
-      <label>
-        Title:
-        <input type="text" name="title" value={formData.title} onChange={handleChange} required />
-      </label>
-      <label>
-        Description:
-        <textarea name="description" value={formData.description} onChange={handleChange} required />
-      </label>
+    <Form className="poster-form" onSubmit={handleSubmit}>
+      <Form.Group controlId="formName">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Enter your name"
+        />
+      </Form.Group>
 
-      {/* Drag and Drop Area */}
-      <div {...getRootProps()} className="dropzone">
-        <input {...getInputProps()} />
-        <p>Drag and drop an image file here, or click to select one</p>
-      </div>
+      <Form.Group controlId="formEmail">
+        <Form.Label>Email:</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          placeholder="Enter your email"
+        />
+      </Form.Group>
 
-      {/* Display the selected file name */}
-      {formData.file && <p>Selected file: {formData.file.name}</p>}
+      <Form.Group controlId="formTitle">
+        <Form.Label>Title:</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Enter title of the poster"
+          maxLength={40} // Set max length
+          required
+        />
+        <Form.Text className="text-muted">
+          Maximum 40 characters
+        </Form.Text>
+      </Form.Group>
 
-      <button type="submit">Submit Poster</button>
-    </form>
+      <Form.Group controlId="formDescription">
+        <Form.Label>Description:</Form.Label>
+        <Form.Control
+          as="textarea"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="Enter description"
+          rows={3}
+          maxLength={200} // Set max length
+          required
+        />
+        <Form.Text className="text-muted">
+          Maximum 200 characters
+        </Form.Text>
+      </Form.Group>
+      <label>
+      Category:
+      <Dropdown>
+        <Dropdown.Toggle style={{ backgroundColor: "navy", borderColor: "navy", color: 'white', marginTop: '10px' }} id="dropdown-basic">
+          {formData.category || '--Choose a Category--'} {/* Show selected category or default */}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {categories.map((category, index) => (
+            <Dropdown.Item 
+              key={index} 
+              onClick={() => handleChange({ target: { name: 'category', value: category }})} // Handle category selection
+            >
+              {category}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </label>
+        {/* Drag and Drop Area */}
+        <div {...getRootProps()} className="dropzone">
+          <input {...getInputProps()} />
+          <p>Drag and drop an image file here, or click to select one</p>
+        </div>
+        {/* Display the selected file name */}
+        {formData.file && <p>Selected file: {formData.file.name}</p>}
+        {preview && (
+           <div>
+               <h3>Image Preview:</h3>
+               <img src={preview} alt="Preview" style={{ maxWidth: "200px", maxHeight: "200px" }} />
+           </div>
+        )}
+        <Button className="custom-button" variant="primary" type="submit" size="lg" style={{ marginTop: '20px', backgroundColor: "navy", borderColor: "navy" }}>
+        Submit Poster
+      </Button>
+      </Form>
   );
 }
 
