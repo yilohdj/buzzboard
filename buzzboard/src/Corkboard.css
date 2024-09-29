@@ -7,9 +7,8 @@
 
 .poster {
     position: relative;
-    width: 500px;
-    height: 700px;
-    perspective: 1000px; /* Enable 3D space for flip effect */
+    width: 400px;
+    height: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
     border: none; /* Remove default Bootstrap card border */
 }
