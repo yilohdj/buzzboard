@@ -24,6 +24,7 @@ function App() {
   // hook to log user out
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     setIsAuth(false);
   };
 
@@ -33,20 +34,6 @@ function App() {
 
   return (
     <Router>
-      <header>
-        {isAuth ? (
-          <nav>
-            <button onClick={handleLogout}>Logout</button>
-            {/* Other links for authenticated users */}
-          </nav>
-        ) : (
-          <nav>
-            <a href="/register">Register</a>
-            <a href="/login">Login</a>
-          </nav>
-        )}
-      </header>
-
       <div className="App">
         <header>
         <img src={icon}
@@ -62,29 +49,47 @@ function App() {
               <Navbar.Brand href="/" className="brand-style">Buzzboard</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-                <Nav.Link as={Link} to="/" className="nav-link-style">Submit a Poster</Nav.Link>
                 <Nav.Link as={Link} to="/corkboard" className="nav-link-style">View Buzzboard</Nav.Link>
+                {isAuth ?
+                  <>
+                    <Nav.Link as={Link} to="/submit" className="nav-link-style">Submit a Poster</Nav.Link>
+                    <Nav.Link as={Link} to="/" className="nav-link-style" onClick={handleLogout}>Logout</Nav.Link>
+                  </>
+                  :
+                  <>
+                    <Nav.Link as={Link} to="register" className="nav-link-style">Register</Nav.Link>
+                    <Nav.Link as={Link} to="/login" className="nav-link-style">Login</Nav.Link>
+                  </>
+                }
               </Navbar.Collapse>
             </Container>
           </Navbar>
         </Container>
         <Routes>
-          <Route
-            path="/"
-            element={<PosterForm onSubmit={handlePosterSubmit} />}
-          />
+          {isAuth ? 
+            <>
+              <Route
+                path="/submit"
+                element={<PosterForm onSubmit={handlePosterSubmit} />}
+              />
+            </>
+            :
+            <>
+              <Route
+              path="/register"
+              element={<Register setIsAuth = {setIsAuth} />}
+              />
+              <Route
+                path="/login"
+                element={<Login setIsAuth = {setIsAuth} />}
+              />
+            </>
+          }
           <Route
             path="/corkboard"
             element={<Corkboard posters={posters} />}
           />
-          <Route
-            path="/register"
-            element={<Register/>}
-          />
-          <Route
-            path="/login"
-            element={<Login setIsAuth = {setIsAuth} />}
-          />
+          
         </Routes>
       </div>
     </Router>

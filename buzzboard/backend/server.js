@@ -28,28 +28,30 @@ const User = mongoose.model('User', UserSchema);
 
 // User Registration
 app.post('/api/register', async (req, res) => {
-    const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, password: hashedPassword });
-    try {
+  const { username, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = new User({ username, password: hashedPassword });
+  try {
       await user.save();
-      res.status(201).send('User registered');
-    } catch (error) {
+      // Send back a response with the username and a success message
+      res.status(201).json({ message: 'User registered', username });
+  } catch (error) {
       res.status(400).send('Error registering user');
-    }
-  });
+  }
+});
 
 // User Login
 app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
-    if (user && await bcrypt.compare(password, user.password)) {
+  const { username, password } = req.body;
+  const user = await User.findOne({ username });
+  if (user && await bcrypt.compare(password, user.password)) {
       const token = jwt.sign({ id: user._id }, 'YOUR_SECRET_KEY', { expiresIn: '1h' });
-      res.json({ token });
-    } else {
+      // Send back the token and username
+      res.json({ token, username: user.username });
+  } else {
       res.status(401).send('Invalid credentials');
-    }
-  });
+  }
+});
 
 // Start the Express server
 app.listen(PORT, () => {
